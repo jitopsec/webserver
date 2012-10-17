@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>[GFA-IAM] [%p] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{0}:%L-%m%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>logs/iam.log</file> 
+   			 <encoder> 
+     			<pattern>[GFA-IAM] [%p] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{0}:%L-%m%n</pattern>
+   		 	</encoder> 
+	</appender>
+	<root level="INFO">		
+		<appender-ref ref="CONSOLE" />
+	</root>
+	<logger name="org.opensaml" level="WARN" />
+	<logger name="cn.com.gfa.iam" level="debug" />
+</configuration>
