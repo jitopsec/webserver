@@ -8,11 +8,13 @@
 	<meta name="website" content="http://www.crazyit.org" />
 </head>
 <body>
+	本网站访问次数：${applicationScope.counter}<br />
 	欢迎，${sessionScope.user},您已经登录!<br />
 	
-	<s:property value="username" /><br>
-	<s:property value="password" /><br>
-	<s:property value="tips" /><br>
-	<a href="getBooks.action">查看作者李刚已出版的图书</a>
+	登录名：<s:property value="username" /><br>
+	密码：<s:property value="password" /><br>
+	Tips：<s:property value="tips" /><br>
+	<a href="getBooks.action">查看作者李刚已出版的图书</a><br />
+	${requestScope.notice}
 </body>
 </html>

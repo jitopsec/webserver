@@ -35,13 +35,20 @@ public class LoginAction implements Action {
 	}
 
 	public String execute() throws Exception {
-		if (getUsername().equals("admin") && getPassword().equals("admin")) {
+		
+		ActionContext context = ActionContext.getContext();
 
-			ActionContext.getContext().getSession().put("user", this.admin);
-			
+		if (getUsername().equals("admin") && getPassword().equals("admin")) {
+		
+			Integer counter = (Integer)context.getApplication().get("counter");
+			counter= (counter == null)?1:counter+1;
+			context.getApplication().put("counter", counter);
+			context.getSession().put("user", this.admin);
+			context.put("notice", "Note:"+this.admin+" login success.");
 			this.setTips("Sir,Success login admin.");
 			return SUCCESS;
 		} else {
+			context.put("notice", "Note:"+this.admin+" login error.");
 			return ERROR;
 		}
 	}
