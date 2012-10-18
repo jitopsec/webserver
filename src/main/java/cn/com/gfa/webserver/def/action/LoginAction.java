@@ -1,9 +1,8 @@
-package cn.com.gfa.webserver.action;
+package cn.com.gfa.webserver.def.action;
 
-import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 
-public class LoginAction implements Action {
+public class LoginAction{
 
 	private String username;
 	private String password;
@@ -25,12 +24,12 @@ public class LoginAction implements Action {
 	}
 
 	public String execute() throws Exception {
-		if (getUsername().equals("test") && getPassword().equals("test")) {
+		if (getUsername().equals("default") && getPassword().equals("default")) {
 
 			ActionContext.getContext().getSession().put("user", username);
-			return SUCCESS;
+			return "success";
 		} else {
-			return ERROR;
+			return "error";
 		}
 	}
 }
