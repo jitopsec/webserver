@@ -5,6 +5,28 @@
 <head>
 	<title>登录页面</title>
 	<meta name="website" content="http://www.crazyit.org" />
+	
+	<script type="text/javascript">
+		
+		
+		//function regist(){
+			//DMI 动态方法调用 actionName!method.action
+			//document.forms[0].action="./admin/login!regist.action";
+			//document.forms[0].submit();
+		//}
+		
+		/*
+		function regist(){
+			//配置Action method属性
+			document.forms[0].action = "./admin/regist.action";
+			document.forms[0].submit();
+		}*/
+		
+		function regist(){
+			document.forms[0].action="./admin/admin_regist.action";
+			document.forms[0].submit();
+		}
+	</script>
 </head>
 <body>
 	<form action="./admin/login.action" method="post">
@@ -18,7 +40,10 @@
 		</tr>
 		<tr align="center">
 			<td colspan="2"><input type="submit" value="登录"/>
-				<input type="reset" value="重填" /></td>
+			<input type="reset" value="重填" />
+			<input type="button" value="注册" onclick="regist();"/>
+			</td>
+			
 		</tr>
 	</table>
 	</form>

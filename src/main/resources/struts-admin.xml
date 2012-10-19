@@ -6,9 +6,32 @@
 
 <struts>
 	<package name="strutsqs" extends="struts-default" namespace="/admin">
+		
+		<default-action-ref name="default"/>
+		
+		<default-class-ref class="cn.com.gfa.webserver.def.action.DefaultActionClass"/>
+		
 		<action name="login" class="cn.com.gfa.webserver.admin.action.LoginAction">
 			<result name="error">/error.jsp</result>
 			<result name="success">/welcome.jsp</result>
+		</action>
+		
+		<!-- 
+		<action name="regist" class="cn.com.gfa.webserver.admin.action.LoginAction" method="regist">
+			<result name="error">/error.jsp</result>
+			<result name="success">/welcome.jsp</result>
+		</action>
+		 -->
+		<action name="admin_*" class="cn.com.gfa.webserver.admin.action.LoginAction" method="{1}">
+			<result name="error">/error.jsp</result>
+			<result name="success" type="plainText">
+				<param name="location">/welcome.jsp</param>
+				<param name="charSet">GBK</param>
+			</result>
+		</action>
+		
+		<action name="default">
+			<result name="success">/default.jsp</result>
 		</action>
 	</package>
 </struts>
